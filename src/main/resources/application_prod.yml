@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+build:
+    version: 1.0.0
+
+accounts:
+  message: Welcome to the Accounts Microservice from Prod Profile!
+  contactDetails:
+    name: John Doe
+    email: test@test.com
+  contactUs:
+    -1-234-567-890
