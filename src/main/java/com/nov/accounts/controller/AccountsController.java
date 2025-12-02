@@ -1,6 +1,7 @@
 package com.nov.accounts.controller;
 
 import com.nov.accounts.constants.AccountsConstants;
+import com.nov.accounts.dto.AccountsContactInfoDto;
 import com.nov.accounts.dto.CustomerDto;
 import com.nov.accounts.dto.ResponseDto;
 import com.nov.accounts.service.IAccountService;
@@ -22,6 +23,8 @@ public class AccountsController {
 
     private IAccountService iAccountService;
 
+    private AccountsContactInfoDto accountsContactInfoDto;
+
     @PostMapping("/createAccount")
     public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
         iAccountService.createAccount(customerDto);
@@ -39,7 +42,12 @@ public class AccountsController {
 
     }
 
+    @GetMapping("/contactInfo")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo() {
 
-
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
+    }
 
 }
